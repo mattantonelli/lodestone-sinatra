@@ -22,14 +22,14 @@ module Webhooks
       embed_post(post, category, locale)
     end
 
-    embeds.each do |embed|
-      body = { embeds: [embed] }.to_json
+    embeds.each_slice(10).each do |embed_slice|
+      body = { embeds: embed_slice }.to_json
       urls.each_slice(20) do |slice|
         threads = slice.map do |url|
           Thread.new do
             begin
               response = RestClient.post(url, body, content_type: :json)
-              sent += 1
+              sent += embed_slice.size
 
               # Respect the dynamic rate limit
               if response.headers[:x_ratelimit_remaining] == '0'
