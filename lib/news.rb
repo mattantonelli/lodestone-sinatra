@@ -138,7 +138,9 @@ module News
 
       details = item.at_css('div.news__list--banner')
       image = details.at_css('img')['src']
-      description = details.css('p').children.first.text
+      description = details.css('p').reject { |p| p.text.empty? }.first.children
+        .map { |child| child.text.empty? ? ' ' : child.text.gsub(/\s{2,}/, ' ').gsub(/^\*/, "\n*") }
+        .join.gsub('  ', "\n\n").strip
 
       { id: id, url: uri.to_s, title: title, time: format_time(time), image: image, description: description }
     end
