@@ -25,7 +25,7 @@ Unofficial webhook service and REST API for the [Final Fantasy XIV Lodestone](ht
 
 ## Usage
 
-See the [wiki](https://github.com/mattantonelli/lodestone-api/wiki) for endpoint information.
+See the [Postman documentation](https://documenter.getpostman.com/view/1779678/TzXzDHVk) for API information.
 
 ## Screenshots
 
