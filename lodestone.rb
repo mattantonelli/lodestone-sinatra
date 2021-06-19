@@ -121,6 +121,10 @@ get '/news/maintenance/current' do
   end
 end
 
+get '/docs' do
+  redirect 'https://documenter.getpostman.com/view/1779678/TzXzDHVk'
+end
+
 # CORS preflight requests
 options '*' do
   response.headers['Allow'] = 'GET,OPTIONS'
