@@ -1,5 +1,4 @@
 log/*
-Capfile
-config/deploy*
+config/deploy/*
 config/webhook.yml
 config/hosts.yml
