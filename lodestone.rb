@@ -21,6 +21,7 @@ configure do
 
   LOCALES = %w(na eu fr de jp).freeze
   HOSTS = YAML.load_file('config/hosts.yml').freeze
+  URL_PATTERN = /webhooks\/\d+\/.+/i.freeze
   GA_URL = 'www.google-analytics.com/collect'.freeze
   GA_TID = 'UA-109201715-1'.freeze
 
@@ -58,6 +59,7 @@ get '/authorize' do
 
   begin
     url = Webhooks.url(params['code'], @redirect_uri)
+    raise Exception.new("Invalid URL: #{url}") unless url.match?(URL_PATTERN)
     News.subscribe(@categories.merge('url' => url), request_locale)
     @flash = { success: 'You are now subscribed to Lodestone updates.' }
   rescue Exception => e
