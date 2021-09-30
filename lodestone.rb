@@ -38,6 +38,9 @@ configure do
   set :allow_origin, :any
   set :allow_methods, [:get]
 
+  # Disable JSON CSRF protection which mysteriously triggers on redirects
+  set :protection, except: [:json_csrf]
+
   Redis.current = Redis::Namespace.new(:lodestone)
   Scheduler.run
 end
