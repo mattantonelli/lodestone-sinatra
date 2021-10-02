@@ -31,6 +31,10 @@ input.form-control, input.form-control:focus {
   background: #eee;
 }
 
+input[type="checkbox"] {
+  -webkit-filter: grayscale(100%);
+}
+
 .form-group > label {
   font-weight: bold;
 }
