@@ -1,6 +1,6 @@
 # Lodestone
 
-Unofficial webhook service and REST API for the [Final Fantasy XIV Lodestone](https://na.finalfantasyxiv.com/lodestone/).
+Unofficial webhook service and REST API for the [Final Fantasy XIV Lodestone](https://na.finalfantasyxiv.com/lodestone/). This is the original Sinatra implementation. You can find the new Ruby of Rails implementation [here](https://github.com/mattantonelli/lodestone).
 
 ## Requirements
 * Ruby ~> 2.4.1
